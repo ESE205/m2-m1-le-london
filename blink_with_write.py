@@ -7,7 +7,7 @@ GPIO.setmode(GPIO.BOARD)
 
 pin1=11
 pin2=12
-iter=5
+iter=int(input(f"Number of blinks"))
 
 GPIO.setup(pin1, GPIO.IN)
 GPIO.setup(pin2, GPIO.OUT)
