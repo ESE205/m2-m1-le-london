@@ -9,6 +9,10 @@ pin1=11
 pin2=12
 iter=int(input(f"Number of blinks"))
 
+DEBUG= False
+  if "-debug" in sys.argv:
+    DEBUG = True
+
 GPIO.setup(pin1, GPIO.IN)
 GPIO.setup(pin2, GPIO.OUT)
 GPIO.output(pin2, GPIO.LOW)
