@@ -13,6 +13,8 @@ DEBUG= False
   if "-debug" in sys.argv:
     DEBUG = True
 
+LED_IS_ON = False
+
 GPIO.setup(pin1, GPIO.IN)
 GPIO.setup(pin2, GPIO.OUT)
 GPIO.output(pin2, GPIO.LOW)
@@ -25,6 +27,9 @@ with open('data.txt', 'w') as data:
       GPIO.output(pin2, GPIO.HIGH)
       data.write(f'{time.time():1.0f} {input}\n')
       sleep(1)
+      if DEBUG:
+         print(f'LED is on: {LED_IS_ON}')
+      LED_IS_ON = not(LED_IS_ON)
       GPIO.output(pin2, GPIO.LOW)
       sleep(1)
     else:
